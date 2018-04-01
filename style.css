@@ -179,7 +179,7 @@ textarea:focus,
 }
 
 a {
-	color: #0073e5;
+	color: #333;
 	text-decoration: underline;
 	transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
@@ -701,7 +701,6 @@ th:first-child {
 .entry-title {
 	font-size: 30px;
 	font-size: 3rem;
-	margin-bottom: 10px;
 }
 
 .entry-title a,
@@ -722,6 +721,26 @@ th:first-child {
 	margin-bottom: 10px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
+}
+
+#featured-post-4 .widget-title,
+#featured-post-7 .widget-title {
+	padding: 0;
+	background-color: #fff;
+	font-size: 24px;
+	font-size: 2.4rem;
+}
+
+.archive-description,
+.taxonomy-archive-description,
+.taxonomy-description {
+	padding: 0 0 50px;
+	border-bottom: 1px dashed #b9b9b9;
+}
+.archive-description p,
+.taxonomy-archive-description p,
+.taxonomy-description p {
+	font-size: .9em;
 }
 
 /* WordPress
@@ -859,8 +878,9 @@ img.alignright,
 }
 
 .featured-content .entry-title {
-	font-size: 16px;
-	font-size: 1.6rem;
+	font-size: 18px;
+	font-size: 1.8rem;
+	font-weight: 600;
 	margin-bottom: 5px;
 	margin-top: 10px;
 }
@@ -1381,6 +1401,15 @@ p.entry-meta {
 	margin-bottom: 20px;
 }
 
+#custom_html-2 .widget-wrap {
+	padding: 1em;
+	background-color: #C1E9E2;
+}
+
+#featured-post-6 .widget-wrap {
+	padding: 1em;
+	background-color: #F1C9E0;
+}
 
 /* Footer Widgets
 ---------------------------------------------------------------------------------------------------- */
@@ -1522,6 +1551,11 @@ p.entry-meta {
 	.nav-primary .genesis-nav-menu a {
 		padding-left: 15px;
 		padding-right: 15px;
+	}
+
+	.genesis-nav-menu a {
+		font-size: 18px;
+		font-size: 1.8rem;
 	}
 
 	/* Site-Inner
