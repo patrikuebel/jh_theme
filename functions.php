@@ -295,16 +295,16 @@ remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 
 // Code to display custom widget after the entry on the frontpage
 genesis_register_sidebar( array(
-    'id' => 'efter-entry-widget',
-    'name' => __( 'After Entry Widget', 'genesis-sample' ),
-    'description' => __( 'After Entry Widget Area', 'childtheme' ),
+    'id' => 'frontpage-1',
+    'name' => __( 'Frontpage 1', 'genesis-sample' ),
+    'description' => __( 'Placed under the page content on the front', 'childtheme' ),
 ) );
 
 add_action( 'genesis_after_entry', 'front_page_widget' );
 function front_page_widget() {
     if ( is_front_page() ) {
-    genesis_widget_area( 'efter-entry-widget', array(
-    'before' => '<div class="after-entry-widget widget-area">',
+    genesis_widget_area( 'frontpage-1', array(
+    'before' => '<div class="frontpage-1-widget widget-area">',
     'after'  => '</div>',
     ) );
     }
