@@ -279,3 +279,33 @@ function genesis_sample_comments_gravatar( $args ) {
 	return $args;
 
 }
+
+// Change the footer text
+add_filter('genesis_footer_creds_text', 'sp_footer_creds_filter');
+function sp_footer_creds_filter( $creds ) {
+	$creds = 'Copyright [footer_copyright] &middot; JärnaHälsan';
+	return $creds;
+}
+
+// Remove the entry meta in the entry header (requires HTML5 theme support)
+remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
+
+// Remove the entry meta in the entry footer (requires HTML5 theme support)
+remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
+
+// Code to display custom widget after the entry on the frontpage
+genesis_register_sidebar( array(
+    'id' => 'efter-entry-widget',
+    'name' => __( 'After Entry Widget', 'genesis-sample' ),
+    'description' => __( 'After Entry Widget Area', 'childtheme' ),
+) );
+
+add_action( 'genesis_after_entry', 'front_page_widget' );
+function front_page_widget() {
+    if ( is_front_page() ) {
+    genesis_widget_area( 'efter-entry-widget', array(
+    'before' => '<div class="after-entry-widget widget-area">',
+    'after'  => '</div>',
+    ) );
+    }
+}
