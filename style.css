@@ -845,7 +845,6 @@ img.alignright,
 --------------------------------------------- */
 
 .featured-content .entry {
-	border-bottom: 1px solid #eee;
 	margin-bottom: 20px;
 }
 
@@ -1262,7 +1261,6 @@ p.entry-meta {
 }
 
 .entry-footer .entry-meta {
-	border-top: 1px solid #eee;
 	padding-top: 20px;
 }
 
@@ -1388,7 +1386,6 @@ p.entry-meta {
 ---------------------------------------------------------------------------------------------------- */
 
 .footer-widgets {
-	border-top: 1px solid #eee;
 	background-color: #fff;
 	clear: both;
 	font-size: 18px;
@@ -1418,7 +1415,6 @@ p.entry-meta {
 
 .site-footer {
 	background-color: #fff;
-	border-top: 1px solid #eee;
 	font-size: 15px;
 	font-size: 1.5rem;
 	line-height: 1.5;
