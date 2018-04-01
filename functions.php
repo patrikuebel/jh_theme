@@ -4,10 +4,10 @@
  *
  * This file adds functions to the Genesis Sample Theme.
  *
- * @package Genesis Sample
- * @author  StudioPress
+ * @package JarnaHalsan
+ * @author  Patrik Uebel
  * @license GPL-2.0+
- * @link    https://www.studiopress.com/
+ * @link    https://patrikuebel.se/
  */
 
 // Starts the engine.
