@@ -719,7 +719,9 @@ th:first-child {
 	font-size: 18px;
 	font-size: 1.8rem;
 	font-weight: 600;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
 }
 
 /* WordPress
