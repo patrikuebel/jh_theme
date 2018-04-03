@@ -1403,19 +1403,19 @@ p.entry-meta {
 
 #custom_html-2 .widget-wrap {
 	padding: 1em;
-	background-color: #C1E9E2;
+	background-color: #FADC72;
 }
 
 #featured-post-6 .widget-wrap {
 	padding: 1em;
-	background-color: #F1C9E0;
+	background-color: #FAB3D8;
 }
 
 /* Footer Widgets
 ---------------------------------------------------------------------------------------------------- */
 
 .footer-widgets {
-	background-color: #FEFDF4;
+	background-color: #91DAD0;
 	clear: both;
 	font-size: 18px;
 	font-size: 1.8rem;
@@ -1468,6 +1468,12 @@ p.entry-meta {
 		position: fixed;
 		width: 100%;
 		z-index: 9999;
+	}
+
+	.site-header .wrap {
+		max-width: 1140px;
+		padding: 0 30px;
+		margin: 0 auto;
 	}
 
 	/* Genesis Menu
@@ -1583,6 +1589,15 @@ p.entry-meta {
 		float: none;
 		margin-left: auto;
 		margin-right: auto;
+	}
+
+	/* Titles
+	--------------------------------------------- */
+
+	.entry-title {
+		font-size: 40px;
+		font-size: 4rem;
+		font-weight: 600
 	}
 
 	/* Sidebar
