@@ -291,7 +291,7 @@ function sp_footer_creds_filter( $creds ) {
 remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
 
 // Remove the entry meta in the entry footer (requires HTML5 theme support)
-remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
+//remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 
 // Code to display custom widget after the entry on the frontpage
 genesis_register_sidebar( array(
@@ -308,4 +308,117 @@ function front_page_widget() {
     'after'  => '</div>',
     ) );
     }
+}
+
+// Code for displaying custom sidebars ---------------------*/
+
+// Register the sidebar
+genesis_register_sidebar( array(
+'id' => 'courses-sidebar',
+'name' => 'Sidofält kurskategorin',
+'description' => 'Det här sidofältet visas på kategorisidan för kurser och enskilda kurssidor.'
+) );
+
+// Replace primary sidebar with custom sidebar
+add_action('get_header','courses_sidebar');
+function courses_sidebar() {
+	if ( ( is_singular() && in_category('kurser') ) || is_category( 'kurser' ) ){
+
+		// remove the default genesis primary sidebar
+		remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
+
+		// add an action hook to call the function for your custom sidebar
+		add_action( 'genesis_sidebar', 'child_do_courses_sidebar' );
+
+	}
+}
+
+// Display the custom sidebar
+function child_do_courses_sidebar() {
+	dynamic_sidebar( 'courses-sidebar' );
+}
+
+// Register the sidebar
+genesis_register_sidebar( array(
+'id' => 'hsl-sidebar',
+'name' => 'Sidofält HSL',
+'description' => 'Det här sidofältet visas på kategorisidan för HSL och enskilda HSL-sidor.'
+) );
+
+// Display the custom sidebar
+function child_do_hsl_sidebar() {
+	dynamic_sidebar( 'hsl-sidebar' );
+}
+
+// Register the sidebar for kvalitetssystem
+genesis_register_sidebar( array(
+'id' => 'kvalitets-sidebar',
+'name' => 'Sidofält Kvalitetssystem',
+'description' => 'Det här sidofältet visas på kategorisidan för Kvalitetssystem och enskilda Kvalitets-sidor.'
+) );
+
+// Display the custom sidebar
+function child_do_kvalitets_sidebar() {
+	dynamic_sidebar( 'kvalitets-sidebar' );
+}
+
+// End code for custom sidebars ---------------------------*/
+
+//Removes Title and Description on Archive, Taxonomy, Category, Tag
+remove_action( 'genesis_before_loop', 'genesis_do_taxonomy_title_description', 15 );
+
+//Removes Title and Description on CPT Archive
+remove_action( 'genesis_before_loop', 'genesis_do_cpt_archive_title_description' );
+
+// Disable dashboard for subscribers
+add_action('admin_init', 'disable_dashboard');
+
+function disable_dashboard() {
+    if (!is_user_logged_in()) {
+        return null;
+    }
+    if (!current_user_can('administrator') && is_admin()) {
+        wp_redirect(home_url());
+        exit;
+    }
+}
+
+add_action('init', 'disable_admin_bar');
+
+function disable_admin_bar() {
+    if (current_user_can('subscriber')) {
+        show_admin_bar(false);
+    }
+}
+
+//Menu based on user role
+function jh_nav_menu_args( $args = '' ) {
+		if (current_user_can('subscriber') ) {
+    	$args['menu'] = 'prenumeranter';
+		}
+		elseif ( current_user_can('editor') || current_user_can('administrator') )  {
+    	$args['menu'] = 'medarbetare';
+		}
+		else {
+			$args['menu'] = 'offentlig';
+		}
+    return $args;
+}
+add_filter( 'wp_nav_menu_args', 'jh_nav_menu_args' );
+
+// Register widgetarea after site-header
+genesis_register_sidebar( array(
+    'id' => 'image-banner',
+    'name' => __( 'Bildbanner', 'genesis' ),
+    'description' => __( 'Visa bild efter header.', 'themename' ),
+) );
+add_action( 'genesis_after_header', 'custom_imagebanner' );
+function custom_imagebanner() {
+if ( ! is_front_page() ) {
+        return;
+    }
+genesis_widget_area( 'image-banner', array(
+        'before' => '<div class="imagebanner widget-area">',
+	'after'  => '</div>',
+) );
 }
