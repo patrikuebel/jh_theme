@@ -157,7 +157,7 @@ body > div {
 }
 
 body {
-	background-color: #fff;
+	background-color: #FEF8FB;
 	color: #333;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 18px;
@@ -975,7 +975,7 @@ img.alignright,
 ---------------------------------------------------------------------------------------------------- */
 
 .site-header {
-	background-color: #fff;
+	background-color: ##FEF8FB;
 	padding: 0 30px;
 }
 
@@ -1392,18 +1392,21 @@ p.entry-meta {
 
 #custom_html-2 .widget-wrap,
 #text-3 .widget-wrap {
-	background-color: #C3E7DE;
+	background-color: #FFE1A5;
 }
 
+/* Adjust when on live site
 #featured-post-6 .widget-wrap {
 	background-color: #F6EDB1;
 }
+*/
 
 #custom_html-2 .widget-wrap,
-#featured-post-6 .widget-wrap,
+/*#featured-post-6 .widget-wrap,*/
 #text-3 .widget-wrap {
-	padding: 1em;
-	border-radius: 5px;
+	padding: calc(1em + 1vw) 1em 1em 1em;
+	-webkit-clip-path: polygon(0 0, 100% calc(0% + 1vw), 100% 100%, 0% 100%);
+	clip-path: polygon(0 0, 100% calc(0% + 1vw), 100% 100%, 0% 100%);
 }
 
 /* Footer Widgets
@@ -1417,7 +1420,6 @@ p.entry-meta {
 	padding:  calc(60px + 2vw) 0 60px 0;
 	-webkit-clip-path: polygon(0 calc(0% + 2vw), 100% 0, 100% 100%, 0 100%);
 	clip-path: polygon(0 calc(0% + 2vw), 100% 0, 100% 100%, 0 100%);
-
 }
 
 .footer-widgets .wrap {
@@ -1552,8 +1554,8 @@ p.entry-meta {
 	}
 
 	.genesis-nav-menu a {
-		font-size: 18px;
-		font-size: 1.8rem;
+		font-size: 20px;
+		font-size: 2rem;
 	}
 
 	/* Site-Inner
