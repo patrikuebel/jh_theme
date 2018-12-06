@@ -1,6 +1,6 @@
 <?php
 
-//* Template Name: Kvalitetssystem single
+//* Template Name: kvalitetssystem taxonomy
 
 if ( current_user_can('administrator') )  {
 
