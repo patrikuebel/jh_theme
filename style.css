@@ -157,7 +157,7 @@ body > div {
 }
 
 body {
-	background-color: #FEF8FB;
+	background-color: #FFF2FA;
 	color: #333;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 18px;
@@ -723,6 +723,8 @@ th:first-child {
 	letter-spacing: 1px;
 }
 
+#lc_taxonomy-2 .widget-title,
+#lc_taxonomy-4 .widget-title,
 #featured-post-3 .widget-title,
 #featured-post-4 .widget-title {
 	font-size: 24px;

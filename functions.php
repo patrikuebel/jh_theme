@@ -378,7 +378,7 @@ function disable_dashboard() {
         return null;
     }
     if (!current_user_can('administrator') && is_admin()) {
-        wp_redirect(home_url());
+        wp_redirect(site_url('/hsl_handbok/'));
         exit;
     }
 }
