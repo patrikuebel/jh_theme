@@ -422,3 +422,18 @@ genesis_widget_area( 'image-banner', array(
 	'after'  => '</div>',
 ) );
 }
+
+add_filter( 'wp_nav_menu_items', 'sp_add_loginout_link', 10, 2 );
+function sp_add_loginout_link( $items, $args ) {
+	// Change 'primary' to 'secondary' to put the login link in your secondary nav bar.
+	if ( $args->theme_location != 'primary' ) {
+		return $items;
+	}
+
+	if ( is_user_logged_in() ) {
+		$items .= '<li class="menu-item"><a href="' . wp_logout_url( home_url() ) . '">Logga ut</a></li>';
+	} else {
+		$items .= '<li class="menu-item"><a href="' . site_url( 'wp-login.php' ) . '">Logga in</a></li>';
+	}
+	return $items;
+}
