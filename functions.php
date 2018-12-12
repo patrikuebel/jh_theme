@@ -406,22 +406,35 @@ function jh_nav_menu_args( $args = '' ) {
 }
 add_filter( 'wp_nav_menu_args', 'jh_nav_menu_args' );
 
-// Register widgetarea after site-header
+// Register two widgetareas, one displaying after site-header on frontpage and the other on all other pages
 genesis_register_sidebar( array(
     'id' => 'image-banner',
-    'name' => __( 'Bildbanner', 'genesis' ),
-    'description' => __( 'Visa bild efter header.', 'themename' ),
+    'name' => __( 'Bildbanner Front', 'genesis-sample' ),
+    'description' => __( 'Visa bild efter header på startsidan.', 'genesis-sample' ),
 ) );
+
+genesis_register_sidebar( array(
+    'id' => 'image-banner-all',
+    'name' => __( 'Bildbanner Alla', 'genesis-sample' ),
+    'description' => __( 'Visa bild efter header på alla sidor förutom startsidan.', 'genesis-sample' ),
+) );
+
 add_action( 'genesis_after_header', 'custom_imagebanner' );
 function custom_imagebanner() {
-if ( ! is_front_page() ) {
-        return;
+	if ( is_front_page() ) {
+		genesis_widget_area( 'image-banner', array(
+	  	'before' => '<div class="imagebanner widget-area">',
+			'after'  => '</div>',
+		) );
     }
-genesis_widget_area( 'image-banner', array(
-        'before' => '<div class="imagebanner widget-area">',
-	'after'  => '</div>',
-) );
+	else {
+		genesis_widget_area( 'image-banner-all', array(
+			'before' => '<div class="imagebanner widget-area">',
+			'after'  => '</div>',
+			) );
+		}
 }
+
 
 //Lägga till inloggningslänk sist i huvudmenyn
 add_filter( 'wp_nav_menu_items', 'sp_add_loginout_link', 10, 2 );
@@ -446,3 +459,5 @@ function change_category_order( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'change_category_order' );
+
+remove_action( 'genesis_entry_footer', 'genesis_post_meta' );

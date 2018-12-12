@@ -1316,7 +1316,7 @@ p.entry-meta {
 .archive-pagination li a:focus,
 .archive-pagination li a:hover,
 .archive-pagination li.active a {
-	background-color: ##E6D1ED;
+	background-color: #E6D1ED;
 }
 
 /* Entry Comments
