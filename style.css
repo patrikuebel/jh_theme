@@ -1302,7 +1302,6 @@ p.entry-meta {
 }
 
 .archive-pagination li a {
-	background-color: #f5f5f5;
 	color: #333;
 	cursor: pointer;
 	display: inline-block;
@@ -1317,8 +1316,7 @@ p.entry-meta {
 .archive-pagination li a:focus,
 .archive-pagination li a:hover,
 .archive-pagination li.active a {
-	background-color: #333;
-	color: #fff;
+	background-color: ##E6D1ED;
 }
 
 /* Entry Comments
