@@ -423,6 +423,7 @@ genesis_widget_area( 'image-banner', array(
 ) );
 }
 
+//Lägga till inloggningslänk sist i huvudmenyn
 add_filter( 'wp_nav_menu_items', 'sp_add_loginout_link', 10, 2 );
 function sp_add_loginout_link( $items, $args ) {
 	// Change 'primary' to 'secondary' to put the login link in your secondary nav bar.
@@ -437,3 +438,11 @@ function sp_add_loginout_link( $items, $args ) {
 	}
 	return $items;
 }
+
+//Ändra visningsordning på sidan för kurskategorin
+function change_category_order( $query ) {
+    if ( $query->is_category('kurser') && $query->is_main_query() ) {
+        $query->set( 'order', 'ASC' );
+    }
+}
+add_action( 'pre_get_posts', 'change_category_order' );
